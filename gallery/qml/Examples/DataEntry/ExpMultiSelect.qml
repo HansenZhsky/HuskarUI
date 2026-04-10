@@ -69,9 +69,9 @@ enabled | bool | 可选 | 本选择项是否启用
 \n### 支持的信号：\n
 - \`search(input: string)\` 搜索补全项的时发出\n
   - \`input\` 输入文本\n
-- \`select(option: var)\` 选择补全项时发出\n
+- \`select(option: var)\` 选择标签项时发出\n
   - \`option\` 选择的选项\n
-- \`removeTag(option: var)\` 删除标签项时发出\n
+- \`deselect(option: var)\` 删除标签项时发出\n
   - \`option\` 删除的选项\n
 \n<br/>
 \n### 注意事项：\n
@@ -388,7 +388,7 @@ enabled | bool | 可选 | 本选择项是否启用
                         filteredOptions = theOptions.filter((o) => !selectedKeys.includes(o));
                         options = filteredOptions.map((item) => ({ label: item }));
                     }
-                    onRemoveTag: {
+                    onDeselect: {
                         filteredOptions = theOptions.filter((o) => !selectedKeys.includes(o));
                         options = filteredOptions.map((item) => ({ label: item }));
                     }
@@ -411,7 +411,7 @@ enabled | bool | 可选 | 本选择项是否启用
                         filteredOptions = theOptions.filter((o) => !selectedKeys.includes(o));
                         options = filteredOptions.map((item) => ({ label: item }));
                     }
-                    onRemoveTag: {
+                    onDeselect: {
                         filteredOptions = theOptions.filter((o) => !selectedKeys.includes(o));
                         options = filteredOptions.map((item) => ({ label: item }));
                     }

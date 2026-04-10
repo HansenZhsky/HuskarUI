@@ -30,7 +30,7 @@ HusSelect {
 
     signal search(input: string)
     signal select(option: var)
-    signal removeTag(option: var)
+    signal deselect(option: var)
 
     property var options: []
     property var filterOption: (input, option) => true
@@ -183,7 +183,7 @@ HusSelect {
             options.forEach(
                         item => {
                             if (item.key && keysSet.has(item.key)) {
-                                __private.append(item.key, item);
+                                __private.append(item.key, item, false);
                                 keysSet.delete(item.key);
                             }
                         });
@@ -446,31 +446,35 @@ HusSelect {
         }
 
         function clear() {
-            selectedKeysMap.forEach((value, key) => control.removeTag(value));
+            selectedKeysMap.forEach((value, key) => control.deselect(value));
             __tagListModel.clear();
             selectedKeysMap.clear();
             selectedKeysMapChanged();
         }
 
-        function insert(index: int, key: string, data: var) {
+        function insert(index: int, key: string, data: var, emit = true) {
             if (!selectedKeysMap.has(key)) {
                 __tagListModel.insert(index, { '__related__': key, 'tagData': data });
                 selectedKeysMap.set(key, data);
                 selectedKeysMapChanged();
-                control.select(data);
+                if (emit) {
+                    control.select(data);
+                }
             }
         }
 
-        function append(key: string, data: var) {
+        function append(key: string, data: var, emit = true) {
             if (!selectedKeysMap.has(key)) {
                 __tagListModel.append({ '__related__': key, 'tagData': data });
                 selectedKeysMap.set(key, data);
                 selectedKeysMapChanged();
-                control.select(data);
+                if (emit) {
+                    control.select(data);
+                }
             }
         }
 
-        function remove(key: string) {
+        function remove(key: string, emit = true) {
             for (let i = 0; i < __tagListModel.count; i++) {
                 if (__tagListModel.get(i).__related__ === key) {
                     const relatedKey = __tagListModel.get(i).__related__;
@@ -478,19 +482,23 @@ HusSelect {
                     __tagListModel.remove(i);
                     selectedKeysMap.delete(relatedKey);
                     selectedKeysMapChanged();
-                    control.removeTag(data);
+                    if (emit) {
+                        control.deselect(data);
+                    }
                     break;
                 }
             }
         }
 
-        function removeAtIndex(index: int) {
+        function removeAtIndex(index: int, emit = true) {
             const relatedKey = __tagListModel.get(index).__related__;
             const data = selectedKeysMap.get(relatedKey);
             __tagListModel.remove(index);
             selectedKeysMap.delete(relatedKey);
             selectedKeysMapChanged();
-            control.removeTag(data);
+            if (emit) {
+                control.deselect(data);
+            }
         }
 
         function findKey(key: string): var {
