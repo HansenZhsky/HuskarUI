@@ -340,6 +340,12 @@ T.Control {
             onActiveFocusChanged: {
                 if (!activeFocus) editingFinished();
             }
+            onTextChanged: {
+                if (length === 0) return;
+                if (length >= String(control.parser(text, control.locale)).length) {
+                    editingFinished();
+                }
+            }
             onEditingFinished: {
                 if (length === 0) return;
                 let v = control.parser(text, control.locale);
@@ -347,6 +353,7 @@ T.Control {
                 control.value = v;
                 control.valueModified();
             }
+            Component.onCompleted: editingFinished();
 
             Keys.onReturnPressed: {
                 editingFinished();
