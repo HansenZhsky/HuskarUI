@@ -72,7 +72,7 @@ Anyone can discuss through issues, QQ groups, or WeChat groups, and ultimately m
 > - **`huskarui`**：: Use Python to query the documentation, properties, and examples of HuskarUI components from the repository metadata.
 > - **`qmlpreview`**：: Use ` qmlscene ` to preview the currently edited QML file and capture a screenshot of the run to the clipboard.
 > 
-> They are designed specifically for AI CLI programming tools such as Claude Code and Codex. It can help you:
+> They are designed specifically for AI Agent programming tools such as Claude Code and Codex. It can help you:
 > - Quickly query component documents and properties
 > - Obtain scenario based development examples
 > - Automatically iterate and preview code

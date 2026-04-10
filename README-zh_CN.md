@@ -72,7 +72,7 @@ Qt Qml 的 Ant 设计组件库
 > - **`huskarui`**：通过 Python 从仓库元数据中查询 HuskarUI 组件的文档、属性和示例。
 > - **`qmlpreviewer`**：使用 `qmlscene` 预览当前编辑的 QML文件，并捕获运行截图到剪贴板。
 > 
-> 它们专为 Claude Code、Codex 等 AI CLI 编程工具设计。它可以帮助你：
+> 它们专为 Claude Code、Codex 等 AI Agent 编程工具设计。它可以帮助你：
 > - 快速查询组件文档和属性
 > - 获取场景化的开发示例
 > - 自动迭代并预览代码
