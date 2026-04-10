@@ -342,7 +342,7 @@ T.Control {
             }
             onTextChanged: {
                 if (length === 0) return;
-                if (length >= String(control.parser(text, control.locale)).length) {
+                if (Number.fromLocaleString(control.locale, text) > control.max) {
                     editingFinished();
                 }
             }
