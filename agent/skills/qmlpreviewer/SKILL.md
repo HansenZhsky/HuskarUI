@@ -16,7 +16,6 @@ Use this skill to quickly run and inspect the currently edited QML file, with th
 ## Inputs required
 
 - `qmlscene.exe` absolute path
-
 ## Execution steps
 
 1. Resolve QML file path from current editor context:
@@ -27,12 +26,6 @@ Use this skill to quickly run and inspect the currently edited QML file, with th
 
 ```powershell
 & "<SKILL_DIR>\capture_qmlscene_to_clipboard.ps1" -QmlScenePath "<qmlscene.exe>" -QmlFilePath "<auto-detected absolute QML file path>"
-```
-
-3. This command launches `qmlscene`, waits for the window to render, captures the rendered content area, and writes the image into the clipboard.
-
-4. If you need to inspect the raw window behavior without clipboard capture, run:
-
 ```powershell
 & "<qmlscene.exe>" "<auto-detected absolute QML file path>" --maximized
 ```
@@ -41,7 +34,7 @@ Use this skill to quickly run and inspect the currently edited QML file, with th
    - Whether the page loads successfully
    - Any obvious rendering/layout issues
    - Any visual errors or missing assets
-
+& "<qmlscene.exe>" "<auto-detected absolute QML file path>" --maximized
 ## Fallback checks
 
 - If launch fails, verify both paths exist and are absolute paths.
