@@ -174,7 +174,6 @@ The installation directory structure
       ...
       QGuiApplication app(argc, argv);
       QQmlApplicationEngine engine;
-      engine.singletonInstance<QJSValue>("HuskarUI.Basic", "HusApp");
       ...
   }
  ```
