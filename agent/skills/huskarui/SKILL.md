@@ -1,8 +1,7 @@
-***
-
+---
 name: "HuskarUI"
 description: "Use Python to query HuskarUI metadata when the agent needs component properties, interfaces, examples, or HuskarUI-first UI code."
-------------------------------------------------------------------------------------
+---
 
 # HuskarUI Expert
 
