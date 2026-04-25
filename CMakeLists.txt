@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.16)
 
 project(HuskarUI_Solution)
 
+set(CMAKE_PREFIX_PATH "D:/QT/6.7.1/msvc2019_64")
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Quick)
 option(BUILD_HUSKARUI_GALLERY "Build HuskarUI Gallery." ON)
 option(BUILD_HUSKARUI_STATIC_LIBRARY "Build HuskarUI as a static library." OFF)
 option(BUILD_HUSKARUI_ON_DESKTOP_PLATFORM "Build HuskarUI on desktop platform (mobile platform set OFF)." ON)

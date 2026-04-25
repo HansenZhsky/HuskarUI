@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/Gallery">D:/1_Leper/MyDocument/QtStudy/HuskarUI/bin</file>
+
+  </qresource>
+</RCC>
